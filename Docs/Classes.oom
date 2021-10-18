@@ -5,6 +5,7 @@
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
 
 <o:RootObject Id="o1">
+<a:SessionID>00000000-0000-0000-0000-000000000000</a:SessionID>
 <c:Children>
 <o:Model Id="o2">
 <a:ObjectID>85B224B9-F77F-4C62-9CBD-1AD6EFAC4DB4</a:ObjectID>
@@ -2617,6 +2618,7 @@ LABL 0 Microsoft Sans Serif,8,N</a:FontList>
 <a:TargetModelURL>file:///%_OBJLANG%/csharp2.xol</a:TargetModelURL>
 <a:TargetModelID>48DE8DAA-F163-416B-ACAA-3F3ABD6F9EE9</a:TargetModelID>
 <a:TargetModelClassID>1811206C-1A4B-11D1-83D9-444553540000</a:TargetModelClassID>
+<a:TargetModelLastModificationDate>1012556774</a:TargetModelLastModificationDate>
 <c:SessionShortcuts>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
