@@ -5,7 +5,6 @@
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
 
 <o:RootObject Id="o1">
-<a:SessionID>00000000-0000-0000-0000-000000000000</a:SessionID>
 <c:Children>
 <o:Model Id="o2">
 <a:ObjectID>85B224B9-F77F-4C62-9CBD-1AD6EFAC4DB4</a:ObjectID>
@@ -30,7 +29,10 @@ GenerationSelections=</a:PackageOptionsText>
 CaseSensitive=Yes
 DisplayName=Yes
 EnableTrans=Yes
+UseTerm=No
 EnableRequirements=No
+EnableFullShortcut=No
+SynchroCode=Yes
 ShowClss=No
 DeftAttr=int
 DeftMthd=int
@@ -46,9 +48,6 @@ DttpFullName=Yes
 DeftClssAttrVisi=private
 VBNetPreprocessingSymbols=
 CSharpPreprocessingSymbols=
-UseTerm=No
-EnableFullShortcut=No
-SynchroCode=Yes
 
 [ModelOptions\Cld\NamingOptionsTemplates]
 
@@ -894,34 +893,6 @@ Script=
 ConvTable=
 ConvTablePath=%_HOME%\Resource Files\Conversion Tables
 
-[ModelOptions\Cld\ClssNamingOptions\DefaultClass]
-
-[ModelOptions\Cld\ClssNamingOptions\DefaultClass\Name]
-Template=
-MaxLen=254
-Case=M
-ValidChar=
-InvldChar=
-AllValid=Yes
-NoAccent=No
-DefaultChar=
-Script=
-ConvTable=
-ConvTablePath=%_HOME%\Resource Files\Conversion Tables
-
-[ModelOptions\Cld\ClssNamingOptions\DefaultClass\Code]
-Template=
-MaxLen=254
-Case=M
-ValidChar=
-InvldChar=&quot; &#39;&quot;&quot;().\#&quot;
-AllValid=Yes
-NoAccent=No
-DefaultChar=
-Script=
-ConvTable=
-ConvTablePath=%_HOME%\Resource Files\Conversion Tables
-
 [ModelOptions\Cld\ClssNamingOptions\AREA]
 
 [ModelOptions\Cld\ClssNamingOptions\AREA\Name]
@@ -950,7 +921,44 @@ Script=
 ConvTable=
 ConvTablePath=%_HOME%\Resource Files\Conversion Tables
 
+[ModelOptions\Cld\ClssNamingOptions\DefaultClass]
+
+[ModelOptions\Cld\ClssNamingOptions\DefaultClass\Name]
+Template=
+MaxLen=254
+Case=M
+ValidChar=
+InvldChar=
+AllValid=Yes
+NoAccent=No
+DefaultChar=
+Script=
+ConvTable=
+ConvTablePath=%_HOME%\Resource Files\Conversion Tables
+
+[ModelOptions\Cld\ClssNamingOptions\DefaultClass\Code]
+Template=
+MaxLen=254
+Case=M
+ValidChar=
+InvldChar=&quot; &#39;&quot;&quot;().\#&quot;
+AllValid=Yes
+NoAccent=No
+DefaultChar=
+Script=
+ConvTable=
+ConvTablePath=%_HOME%\Resource Files\Conversion Tables
+
 [ModelOptions\Generate]
+
+[ModelOptions\Generate\Xsm]
+GenRootElement=Yes
+GenComplexType=No
+GenAttribute=Yes
+CheckModel=Yes
+SaveLinks=Yes
+ORMapping=No
+NameToCode=No
 
 [ModelOptions\Generate\Cdm]
 CheckModel=Yes
@@ -970,16 +978,8 @@ IndxAKName=%TABLE%_AK
 IndxFKName=%REFR%_FK
 IndxThreshold=
 ColnFKName=%.3:PARENT%_%COLUMN%
-ColnFKNameUse=No
-
-[ModelOptions\Generate\Xsm]
-CheckModel=Yes
-SaveLinks=Yes
-ORMapping=No
-NameToCode=No
-GenRootElement=Yes
-GenComplexType=No
-GenAttribute=Yes</a:ModelOptionsText>
+ColnFKNameUse=No</a:ModelOptionsText>
+<a:RepositoryFilename>C:\Users\user\ivtpo-18\Docs\Classes.oom</a:RepositoryFilename>
 <c:ObjectLanguage>
 <o:Shortcut Id="o3">
 <a:ObjectID>D827EAE0-4D07-4FB8-9AFF-D296BD71B244</a:ObjectID>
@@ -1570,7 +1570,7 @@ Shadow=0</a:DisplayPreferences>
 <a:CreationDate>1634542118</a:CreationDate>
 <a:ModificationDate>1634542660</a:ModificationDate>
 <a:SourceTextOffset>(-730, -733)</a:SourceTextOffset>
-<a:Rect>((3487,-6419), (19012,-3438))</a:Rect>
+<a:Rect>((3487,-6320), (19012,-3640))</a:Rect>
 <a:ListOfPoints>((19012,-4613),(3487,-4613))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>3592</a:ArrowStyle>
@@ -1592,7 +1592,7 @@ SOURCE 0 Microsoft Sans Serif,8,N</a:FontList>
 <a:CreationDate>1634542181</a:CreationDate>
 <a:ModificationDate>1634542654</a:ModificationDate>
 <a:SourceTextOffset>(-1611, -1127)</a:SourceTextOffset>
-<a:Rect>((-12811,-6847), (2625,-3472))</a:Rect>
+<a:Rect>((-12811,-6748), (2625,-3674))</a:Rect>
 <a:ListOfPoints>((2625,-4647),(-12811,-4647))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>3336</a:ArrowStyle>
@@ -1633,7 +1633,6 @@ SOURCE 0 Microsoft Sans Serif,8,N</a:FontList>
 </o:AssociationSymbol>
 <o:AssociationSymbol Id="o16">
 <a:CreationDate>1634542399</a:CreationDate>
-<a:ModificationDate>1634542844</a:ModificationDate>
 <a:Rect>((-14183,13932), (12995,17913))</a:Rect>
 <a:ListOfPoints>((-14183,13932),(-6275,13932),(-6275,16839),(12995,16839))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
@@ -1717,8 +1716,8 @@ SOURCE 0 Microsoft Sans Serif,8,N</a:FontList>
 <o:GeneralizationSymbol Id="o28">
 <a:CreationDate>1634543638</a:CreationDate>
 <a:ModificationDate>1634543638</a:ModificationDate>
-<a:Rect>((5245,-15123), (15388,-14120))</a:Rect>
-<a:ListOfPoints>((15388,-14634),(5245,-14609))</a:ListOfPoints>
+<a:Rect>((5245,-15121), (15388,-14121))</a:Rect>
+<a:ListOfPoints>((15388,-14621),(5245,-14621))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>7</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -1758,7 +1757,7 @@ SOURCE 0 Microsoft Sans Serif,8,N</a:FontList>
 <o:AssociationSymbol Id="o33">
 <a:CreationDate>1634543993</a:CreationDate>
 <a:ModificationDate>1634544061</a:ModificationDate>
-<a:Rect>((-11773,-19084), (3611,-15643))</a:Rect>
+<a:Rect>((-11773,-19084), (3611,-15744))</a:Rect>
 <a:ListOfPoints>((-11773,-19084),(-5416,-19084),(-5416,-16718),(3611,-16718))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -2624,12 +2623,11 @@ LABL 0 Microsoft Sans Serif,8,N</a:FontList>
 <a:Code>C# 2</a:Code>
 <a:CreationDate>1634542461</a:CreationDate>
 <a:Creator>Vladimir</a:Creator>
-<a:ModificationDate>1634542463</a:ModificationDate>
-<a:Modifier>Vladimir</a:Modifier>
-<a:TargetModelURL>file:///%_OBJLANG%/csharp2.xol</a:TargetModelURL>
+<a:ModificationDate>1152646077</a:ModificationDate>
+<a:Modifier>user</a:Modifier>
+<a:TargetModelURL>file:///%[XOL]%/csharp2.xol</a:TargetModelURL>
 <a:TargetModelID>48DE8DAA-F163-416B-ACAA-3F3ABD6F9EE9</a:TargetModelID>
 <a:TargetModelClassID>1811206C-1A4B-11D1-83D9-444553540000</a:TargetModelClassID>
-<a:TargetModelLastModificationDate>1012556774</a:TargetModelLastModificationDate>
 <c:SessionShortcuts>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
@@ -2640,11 +2638,12 @@ LABL 0 Microsoft Sans Serif,8,N</a:FontList>
 <a:Code>WSDLDotNet</a:Code>
 <a:CreationDate>1634542462</a:CreationDate>
 <a:Creator>Vladimir</a:Creator>
-<a:ModificationDate>1634542463</a:ModificationDate>
-<a:Modifier>Vladimir</a:Modifier>
-<a:TargetModelURL>file:///%_XEM%/WSDLDotNet.xem</a:TargetModelURL>
+<a:ModificationDate>1495529175</a:ModificationDate>
+<a:Modifier>user</a:Modifier>
+<a:TargetModelURL>file:///%[XEM]%/WSDLDotNet.xem</a:TargetModelURL>
 <a:TargetModelID>3287C7D6-062E-4BEA-AF1F-1634ED585124</a:TargetModelID>
 <a:TargetModelClassID>186C8AC3-D3DC-11D3-881C-00508B03C75C</a:TargetModelClassID>
+<a:TargetModelLastModificationDate>1495529175</a:TargetModelLastModificationDate>
 <c:SessionShortcuts>
 <o:Shortcut Ref="o4"/>
 </c:SessionShortcuts>
