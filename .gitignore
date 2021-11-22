@@ -17,6 +17,9 @@
 mono_crash.*
 
 # Build results
+venv/
+.idea/
+
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
