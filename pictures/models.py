@@ -1,7 +1,34 @@
 from django.db.models import *
 
-# Create your models here.
+class Employee(Model):
+    Name = models.CharField(verbose_name='ФИО сотрудника', max_length=100, blank=False, null=False, db_index=True)
+    Telephone = models.CharField(verbose_name='Телефон', max_length=15, blank=False, null=False, db_index=True)
+    Position = models.CharField(verbose_name='Позиция', max_length=100, blank=False, null=False, db_index=True)
+    department = models.ForeignKey(Department)
 
+class Position(Model):
+    Position = (
+        (1, 'Director'),
+        (2, 'Manager'),
+        (3, 'Resrorer'),
+        (4, 'Admin')
+    )
+
+class Status (Model)
+    Status = (
+        (1, 'N')
+    )
+
+class Journal(Model):
+    Picture = models.PictureField(verbose_name='Картина', max_length=100, blank=False, null=False, db_index=True)
+    Date = models.DateField(verbose_name='Дата', max_length=100, blank=False, null=False, db_index=True)
+    Employee = models.ForeignKey(Employee)
+    Placement = models.ForeignKey(Placement)
+    Placement = models.ForeignKey(Placement)
+
+
+
+"""
 d = (
     (1, 'jsahfdkl'),
     (2, 'skjdfhgkljhs'),
@@ -34,4 +61,4 @@ class F(Model):
     pass
 
 class G(F):
-    pass
+    pass """
