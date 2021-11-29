@@ -1,7 +1,7 @@
 from django.db.models import *
 
 # Create your models here.
-
+'''
 d = (
     (1, 'jsahfdkl'),
     (2, 'skjdfhgkljhs'),
@@ -35,3 +35,16 @@ class F(Model):
 
 class G(F):
     pass
+'''
+class Placement(Model):
+    Name = CharField(verbose_name='Название', max_length=250)
+    address = CharField(verbose_name='Адрес', max_length=250, db_index=True)
+    Journal = ForeignKey('Journal', verbose_name='Журнал')
+
+
+
+class Country(Model):
+    Name = CharField(verbose_name='Родная страна художника', max_length=30)
+    Artist = ForeignKey('Artist')
+
+
