@@ -19,6 +19,7 @@ mono_crash.*
 # Build results
 venv/
 myvenv/
+tatara/
 .idea/
 
 [Dd]ebug/

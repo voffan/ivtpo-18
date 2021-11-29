@@ -1,5 +1,5 @@
 from django.db.models import *
-
+'''
 # Create your models here.
 
 d = (
@@ -35,3 +35,9 @@ class F(Model):
 
 class G(F):
     pass
+'''
+
+class Expo(Model):
+    opening_time = DateField('Дата открытия', null=False, auto_now=False)
+    closing_time = DateField('Дата закрытия', null=False, auto_now=False)
+    Placement = ForeignKey('Placement', verbose_name='Адрес')
