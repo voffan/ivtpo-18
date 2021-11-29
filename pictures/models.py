@@ -39,12 +39,9 @@ class G(F):
 class Placement(Model):
     Name = CharField(verbose_name='Название', max_length=250)
     address = CharField(verbose_name='Адрес', max_length=250, db_index=True)
-    Journal = ForeignKey('Journal', verbose_name='Журнал')
-
 
 
 class Country(Model):
-    Name = CharField(verbose_name='Родная страна художника', max_length=30)
-    Artist = ForeignKey('Artist')
+    Name = CharField(verbose_name='Страна', max_length=300)
 
 
