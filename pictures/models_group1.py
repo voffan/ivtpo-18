@@ -35,7 +35,6 @@ class F(Model):
 
 class G(F):
     pass
-<<<<<<< HEAD
     '''
 
 class Artist(Model):
@@ -65,19 +64,3 @@ class Gallery(Model):
 
 class Genre(Model):
     name = CharField(max_length=100)
-=======
-'''
-class Placement(Model):
-    Name = CharField(verbose_name='Название', max_length=250)
-    address = CharField(verbose_name='Адрес', max_length=250, db_index=True)
-
-
-class Country(Model):
-    Name = CharField(verbose_name='Страна', max_length=300)
-
-
-class Expo(Model):
-    opening_time = DateField('Дата открытия', null=False, auto_now=False)
-    closing_time = DateField('Дата закрытия', null=False, auto_now=False)
-    Placement = ForeignKey('Placement', verbose_name='Адрес')
->>>>>>> a42845fb03a8153572099366d907d605f23256f2
