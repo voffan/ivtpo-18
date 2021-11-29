@@ -41,4 +41,4 @@ class Picture(Model):
     Cost = FloatField('Цена')
     Placement = ForeignKey('Picture', verbose_name='Место')
     Year = IntegerField('год', default=1)
-    Status = IntegerField('Статус', choices=Status, default=1)
+    Status = IntegerField('Статус', choices='Status', default=1)
