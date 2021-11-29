@@ -1,7 +1,7 @@
 from django.db.models import *
-'''
-# Create your models here.
 
+# Create your models here.
+'''
 d = (
     (1, 'jsahfdkl'),
     (2, 'skjdfhgkljhs'),
@@ -36,6 +36,14 @@ class F(Model):
 class G(F):
     pass
 '''
+class Placement(Model):
+    Name = CharField(verbose_name='Название', max_length=250)
+    address = CharField(verbose_name='Адрес', max_length=250, db_index=True)
+
+
+class Country(Model):
+    Name = CharField(verbose_name='Страна', max_length=300)
+
 
 class Expo(Model):
     opening_time = DateField('Дата открытия', null=False, auto_now=False)
