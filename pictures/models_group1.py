@@ -35,7 +35,7 @@ class F(Model):
 
 class G(F):
     pass
-'''
+    '''
 
 class Artist(Model):
     a = CharField(max_length=30, help_text="Enter artist's name'")
@@ -64,56 +64,3 @@ class Gallery(Model):
 
 class Genre(Model):
     name = CharField(max_length=100)
-
-
-class Placement(Model):
-    Name = CharField(verbose_name='Название', max_length=250)
-    address = CharField(verbose_name='Адрес', max_length=250, db_index=True)
-
-
-class Country(Model):
-    Name = CharField(verbose_name='Страна', max_length=300)
-
-
-class Expo(Model):
-    opening_time = DateField('Дата открытия', null=False, auto_now=False)
-    closing_time = DateField('Дата закрытия', null=False, auto_now=False)
-    Placement = ForeignKey('Placement', verbose_name='Адрес')
-
-
-class Employee(Model):
-    Name = models.CharField(verbose_name='ФИО сотрудника', max_length=100, blank=False, null=False, db_index=True)
-    Telephone = models.CharField(verbose_name='Телефон', max_length=15, blank=False, null=False, db_index=True)
-    Position = models.CharField(verbose_name='Позиция', max_length=100, blank=False, null=False, db_index=True)
-    department = models.ForeignKey(Department)
-
-
-class Position(Model):
-    Position = (
-        (1, 'Director'),
-        (2, 'Manager'),
-        (3, 'Resrorer'),
-        (4, 'Admin')
-    )
-
-
-class Status (Model)
-    Status = (
-        (1, 'N')
-    )
-
-
-class Journal(Model):
-    Picture = models.PictureField(verbose_name='Картина', max_length=100, blank=False, null=False, db_index=True)
-    Date = models.DateField(verbose_name='Дата', max_length=100, blank=False, null=False, db_index=True)
-    Employee = models.ForeignKey(Employee)
-    Placement = models.ForeignKey(Placement)
-    Placement = models.ForeignKey(Placement)
-
-
-class Picture(Model):
-    Name = CharField(verbose_name='Название картинки', max_length=250, db_index=True)
-    Cost = FloatField('Цена')
-    Placement = ForeignKey('Picture', verbose_name='Место')
-    Year = IntegerField('год', default=1)
-    Status = IntegerField('Статус', choices='Status', default=1)
