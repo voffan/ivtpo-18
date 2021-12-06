@@ -45,25 +45,17 @@ Position = (
 )
 
 Status = (
-    (1, 'N')
+    (1, 'New'),
 )
 
 
 class Artist(Model):
-    a = CharField(max_length=30, help_text="Enter artist's name'")
     first_name = CharField(max_length=100)
     last_name = CharField(max_length=100)
     about = CharField(max_length=1000)
-    country = ForeignKey('Country', verbose_name='Страна', db_index=True)
+    country = ForeignKey('Country', verbose_name='Страна', null=True, blank=True, db_index=True, on_delete=SET_NULL)
     date_of_birth = DateField('Дата рождения', null=True, blank=True)
     date_of_death = DateField('Дата смерти', null=True, blank=True)
-
-
-class Department(Model):
-    name = CharField(max_length=100)
-    phone = CharField(max_length=12)
-    employee = ForeignKey('Employee', verbose_name='Сотрудник', db_index=True)
-    placement = ForeignKey('Placement', verbose_name='Размещение', db_index=True)
 
 
 class Gallery(Model):
@@ -71,8 +63,6 @@ class Gallery(Model):
     pictures = CharField(max_length=1000)
     phone = CharField(max_length=12)
     address = CharField(max_length=100)
-    department = ForeignKey(Department, verbose_name='Отдел', db_index=True)
-    picture = ForeignKey('Picture', verbose_name='Картина', db_index=True)
 
 
 class Genre(Model):
@@ -80,38 +70,43 @@ class Genre(Model):
 
 
 class Placement(Model):
-    Name = CharField(verbose_name='Название', max_length=250)
+    name = CharField(verbose_name='Название', max_length=250)
     address = CharField(verbose_name='Адрес', max_length=250, db_index=True)
 
 
+class Department(Placement):
+    phone = CharField(max_length=12)
+    gallery = ForeignKey(Gallery, verbose_name='Галерея', db_index=True, on_delete=CASCADE)
+
+
 class Country(Model):
-    Name = CharField(verbose_name='Страна', max_length=300)
+    name = CharField(verbose_name='Страна', max_length=300)
 
 
-class Expo(Model):
+class Expo(Placement):
     opening_time = DateField('Дата открытия', null=False, auto_now=False)
     closing_time = DateField('Дата закрытия', null=False, auto_now=False)
-    Placement = ForeignKey('Placement', verbose_name='Адрес')
 
 
 class Employee(Model):
-    Name = CharField(verbose_name='ФИО сотрудника', max_length=100, blank=False, null=False, db_index=True)
-    Telephone = CharField(verbose_name='Телефон', max_length=15, blank=False, null=False, db_index=True)
-    Position = CharField(verbose_name='Позиция', max_length=100, blank=False, null=False, db_index=True)
-    department = ForeignKey(Department)
+    name = CharField(verbose_name='ФИО сотрудника', max_length=100, blank=False, null=False, db_index=True)
+    telephone = CharField(verbose_name='Телефон', max_length=15, blank=False, null=False, db_index=True)
+    position = CharField(verbose_name='Позиция', max_length=100, blank=False, null=False, db_index=True)
+    department = ForeignKey(Department, verbose_name='Отдел', null=True, on_delete=SET_NULL)
 
 
 class Journal(Model):
-    Picture = ForeignKey('Picture', verbose_name='Картина', blank=False, null=False, db_index=True)
-    Date = DateField(verbose_name='Дата', max_length=100, blank=False, null=False, db_index=True)
-    Employee = ForeignKey(Employee)
-    Placement = ForeignKey(Placement)
-    Placement = ForeignKey(Placement)
+    picture = ForeignKey('Picture', verbose_name='Картина', db_index=True, on_delete=CASCADE)
+    date = DateField(verbose_name='Дата', max_length=100, blank=False, null=False, db_index=True)
+    employee = ForeignKey(Employee, verbose_name='Сотрудник', blank=True, null=True, on_delete=SET_NULL)
+    placement_from = ForeignKey(Placement, verbose_name='Откуда', related_name='placement_from', on_delete=CASCADE)
+    placement_to = ForeignKey(Placement, verbose_name='Куда', related_name='placement_to', on_delete=CASCADE)
 
 
 class Picture(Model):
-    Name = CharField(verbose_name='Название картинки', max_length=250, db_index=True)
-    Cost = FloatField('Цена')
-    Placement = ForeignKey('Picture', verbose_name='Место')
-    Year = IntegerField('год', default=1)
-    Status = IntegerField('Статус', choices='Status', default=1)
+    name = CharField(verbose_name='Название', max_length=250, db_index=True)
+    cost = FloatField('Цена')
+    placement = ForeignKey(Placement, verbose_name='Место', null=True, on_delete=SET_NULL)
+    year = IntegerField('год', default=1)
+    status = IntegerField('Статус', choices=Status, default=1)
+    gallery = ForeignKey(Gallery, verbose_name='Галерея',db_index=True, on_delete=CASCADE)
