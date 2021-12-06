@@ -37,6 +37,18 @@ class G(F):
     pass
 '''
 
+Position = (
+    (1, 'Director'),
+    (2, 'Manager'),
+    (3, 'Resrorer'),
+    (4, 'Admin')
+)
+
+Status = (
+    (1, 'N')
+)
+
+
 class Artist(Model):
     a = CharField(max_length=30, help_text="Enter artist's name'")
     first_name = CharField(max_length=100)
@@ -46,18 +58,19 @@ class Artist(Model):
     date_of_birth = DateField('Дата рождения', null=True, blank=True)
     date_of_death = DateField('Дата смерти', null=True, blank=True)
 
+
 class Department(Model):
     name = CharField(max_length=100)
     phone = CharField(max_length=12)
     employee = ForeignKey('Employee', verbose_name='Сотрудник', db_index=True)
     placement = ForeignKey('Placement', verbose_name='Размещение', db_index=True)
 
+
 class Gallery(Model):
     name = CharField(max_length=100)
     pictures = CharField(max_length=1000)
     phone = CharField(max_length=12)
     address = CharField(max_length=100)
-
     department = ForeignKey(Department, verbose_name='Отдел', db_index=True)
     picture = ForeignKey('Picture', verbose_name='Картина', db_index=True)
 
@@ -82,33 +95,18 @@ class Expo(Model):
 
 
 class Employee(Model):
-    Name = models.CharField(verbose_name='ФИО сотрудника', max_length=100, blank=False, null=False, db_index=True)
-    Telephone = models.CharField(verbose_name='Телефон', max_length=15, blank=False, null=False, db_index=True)
-    Position = models.CharField(verbose_name='Позиция', max_length=100, blank=False, null=False, db_index=True)
-    department = models.ForeignKey(Department)
-
-
-class Position(Model):
-    Position = (
-        (1, 'Director'),
-        (2, 'Manager'),
-        (3, 'Resrorer'),
-        (4, 'Admin')
-    )
-
-
-class Status (Model)
-    Status = (
-        (1, 'N')
-    )
+    Name = CharField(verbose_name='ФИО сотрудника', max_length=100, blank=False, null=False, db_index=True)
+    Telephone = CharField(verbose_name='Телефон', max_length=15, blank=False, null=False, db_index=True)
+    Position = CharField(verbose_name='Позиция', max_length=100, blank=False, null=False, db_index=True)
+    department = ForeignKey(Department)
 
 
 class Journal(Model):
-    Picture = models.PictureField(verbose_name='Картина', max_length=100, blank=False, null=False, db_index=True)
-    Date = models.DateField(verbose_name='Дата', max_length=100, blank=False, null=False, db_index=True)
-    Employee = models.ForeignKey(Employee)
-    Placement = models.ForeignKey(Placement)
-    Placement = models.ForeignKey(Placement)
+    Picture = ForeignKey('Picture', verbose_name='Картина', blank=False, null=False, db_index=True)
+    Date = DateField(verbose_name='Дата', max_length=100, blank=False, null=False, db_index=True)
+    Employee = ForeignKey(Employee)
+    Placement = ForeignKey(Placement)
+    Placement = ForeignKey(Placement)
 
 
 class Picture(Model):
