@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Галерея</title>
+</head>
+<body>
+    <table>
+        <thead>
+        <th>Номер</th>
+        <th>Наименование</th>
+        <th>Автор</th>
+        <th>Год</th>
+        </thead>
+        <tbody>
+        {% for picture in pictures %}
+        <tr>
+            <td>{{ picture.id }}</td>
+            <td>{{ picture.name }}</td>
+            <td>{{ picture.author.first_name }} {{ picture.author.last_name }}</td>
+            <td>{{ picture.year }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

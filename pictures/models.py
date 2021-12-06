@@ -105,6 +105,7 @@ class Journal(Model):
 
 class Picture(Model):
     name = CharField(verbose_name='Название', max_length=250, db_index=True)
+    author =  ForeignKey(Artist, verbose_name='Автор', null=True, on_delete=SET_NULL)
     cost = FloatField('Цена')
     placement = ForeignKey(Placement, verbose_name='Место', null=True, on_delete=SET_NULL)
     year = IntegerField('год', default=1)
