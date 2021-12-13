@@ -7,3 +7,6 @@ from pictures.models import Picture
 
 def index(request):
     return render(request, "index.html", {'pictures': Picture.objects.all()})
+
+def authorization(request):
+    return render(request, "authorization.html", {'pictures': Picture.objects.all()})
