@@ -4,4 +4,5 @@ from pictures.views import *
 
 urlpatterns = [
     path('', index),
+    path('addpictures', index2),
 ]

@@ -7,3 +7,6 @@ from pictures.models import Picture
 
 def index(request):
     return render(request, "index.html", {'pictures': Picture.objects.all()})
+
+def index2(request):
+    return render(request, "index2.html", {'pictures': Picture.objects.all()})
