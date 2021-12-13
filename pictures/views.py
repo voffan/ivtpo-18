@@ -7,3 +7,9 @@ from pictures.models import Picture
 
 def index(request):
     return render(request, "index.html", {'pictures': Picture.objects.all()})
+
+
+
+
+def employee_list(request):
+    return render(request, "employee.html", {'employees': Employee.objects.all()})
