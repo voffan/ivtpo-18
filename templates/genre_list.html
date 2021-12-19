@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Жанры</title>
+</head>
+<body>
+<table>
+        <thead>
+        <th>Номер</th>
+        <th>Наименование</th>
+        </thead>
+        <tbody>
+        {% for picture in pictures %}
+        <tr>
+            <td>{{ genre.id }}</td>
+            <td>{{ genre.name }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
