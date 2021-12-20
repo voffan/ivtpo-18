@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from pictures.models import Picture, Employee
+from pictures.models import Picture, Employee, Artist
 
 
 # Create your views here.
@@ -15,4 +15,4 @@ def employee_list(request):
 
 
 def artist_list(request):
-    return render(request, "artist_list.html", {'artist': Picture.objects.all()})
+    return render(request, "artist_list.html", {'artist': Artist.objects.all()})
