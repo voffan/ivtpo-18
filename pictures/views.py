@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from pictures.models import Picture, Employee
+from pictures.models import Picture, Employee, Country
 
 
 # Create your views here.
@@ -20,4 +20,7 @@ def employee_list(request):
 
 def index2(request):
     return render(request, "index2.html", {'pictures': Picture.objects.all()})
+
+def countrySearch(request):
+    return render(request, "country.html", {'countries': Country.objects.all()})
 
