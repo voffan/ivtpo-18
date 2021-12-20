@@ -11,7 +11,11 @@ def index(request):
 
 
 def authorization(request):
-    return render(request, "authorization.html", {'pictures': Picture.objects.all()})
+    if request.method == "POST":
+        #add authorization code
+
+        pass
+    return render(request, "authorization.html")
 
 
 def employee_list(request):

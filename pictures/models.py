@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db.models import *
 
 # Create your models here.
@@ -93,6 +94,7 @@ class Employee(Model):
     telephone = CharField(verbose_name='Телефон', max_length=15, blank=False, null=False, db_index=True)
     position = CharField(verbose_name='Позиция', max_length=100, blank=False, null=False, db_index=True)
     department = ForeignKey(Department, verbose_name='Отдел', null=True, on_delete=SET_NULL)
+    user = ForeignKey(User, verbose_name="Пользователь", db_index=True, null=True, blank=True, on_delete=SET_NULL)
 
 
 class Journal(Model):
