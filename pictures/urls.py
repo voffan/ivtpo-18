@@ -5,13 +5,14 @@ from pictures.views import *
 urlpatterns = [
     path('', index),
 
-
-    path('authorization',authorization),
+    path('authorization', authorization),
 
     path('employee', employee_list),
 
+    path('listexpo', listexpo),
+
     path('country', countrySearch),
+
     path('listofartists', artist_list)
 ]
-
 

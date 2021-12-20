@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+
+from pictures.models import Picture, Expo
+from pictures.models import Picture, Employee, Artist
+
 from pictures.models import Picture, Employee, Artist, Country
+
 
 
 # Create your views here.
@@ -20,10 +25,11 @@ def artist_list(request):
 def employee_list(request):
     return render(request, "employee.html", {'employees': Employee.objects.all()})
 
+
+def listexpo(request):
+    return render(request, "ListExpo.html", {'expo': Expo.objects.all()})
+
 def countrySearch(request):
     return render(request, "country.html", {'countries': Country.objects.all()})
 
-
-def index2(request):
-    return render(request, "index2.html", {'pictures': Picture.objects.all()})
 

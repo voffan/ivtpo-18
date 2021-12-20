@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expo</title>
+</head>
+<body>
+    <form>
+        <p><input type="search" name="q" placeholder="Поиск по сайту">
+        <input type="submit" value="Найти"></p>
+    </form>
+    <a href="">Добавить выставку</a>
+    <table border="1">
+        <thead>
+        <th>Название</th>
+        <th>Место</th>
+        <th>Дата открытия</th>
+        <th>Дата закрытия</th>
+        </thead>
+        <tbody>
+            {% for expo in expo %}
+        <tr>
+            <td>{{ expo.name }}</td>
+            <td>{{ expo.address }}</td>
+            <td>{{ expo.opening_time }}</td>
+            <td>{{ expo.closing_time }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
