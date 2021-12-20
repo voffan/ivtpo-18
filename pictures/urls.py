@@ -10,7 +10,7 @@ urlpatterns = [
 
     path('employee', employee_list),
 
-
+    path('country', countrySearch),
     path('listofartists', artist_list)
 ]
 
