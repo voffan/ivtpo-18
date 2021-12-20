@@ -11,6 +11,8 @@ urlpatterns = [
 
     path('listexpo', listexpo),
 
+    path('country', countrySearch),
+
     path('listofartists', artist_list)
 ]
 
