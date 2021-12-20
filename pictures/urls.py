@@ -9,7 +9,7 @@ urlpatterns = [
     path('authorization',authorization),
 
     path('employee', employee_list),
-    path('addpictures', index2),
+
 
     path('listofartists', artist_list)
 ]
