@@ -4,4 +4,6 @@ from pictures.views import *
 
 urlpatterns = [
     path('', index),
+    path('listofartists', artist_list)
 ]
+
