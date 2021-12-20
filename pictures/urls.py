@@ -5,5 +5,5 @@ from pictures.views import *
 urlpatterns = [
     path('', index),
     path('employee', employee_list),
-    path('addpictures', index2),
+    path('listexpo', listexpo),
 ]

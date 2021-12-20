@@ -31,7 +31,7 @@ class C(Model):
 
 
 class F(Model):
-    pass
+    pass,
 
 class G(F):
     pass
