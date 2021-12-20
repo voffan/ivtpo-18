@@ -9,9 +9,9 @@ urlpatterns = [
     path('authorization',authorization),
 
     path('employee', employee_list),
-    path('addpictures', index2),
-    path('country', countrySearch)
 
+
+    path('listofartists', artist_list)
 ]
 
 
