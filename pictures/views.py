@@ -1,12 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from pictures.models import Picture, Expo
-from pictures.models import Picture, Employee, Artist
+from pictures.models import Expo, Genre
 
-from pictures.models import Genre
 from pictures.models import Picture, Employee, Artist, Country
-
 
 
 # Create your views here.
@@ -34,7 +31,11 @@ def countrySearch(request):
     return render(request, "country.html", {'countries': Country.objects.all()})
 
 
+def country_list(request):
+    return render(request, "country_list.html", {'countries': Country.objects.all()})
+
+
 def genre_search(request):
-    return render(request, "genre_list.html", {'genre': Genre.objects.all()})
+    return render(request, "genre_list.html", {'genres': Genre.objects.all()})
 
 

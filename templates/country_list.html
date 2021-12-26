@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Жанры</title>
+    <title>Список стран</title>
 </head>
 <body>
 <table>
@@ -10,9 +10,9 @@
         <th>Наименование</th>
         </thead>
         <tbody>
-        {% for genre in genres %}
+        {% for country in countries %}
         <tr>
-            <td>{{ genre.name }}</td>
+            <td>{{ country.name }}</td>
         </tr>
         {% endfor %}
         </tbody>
