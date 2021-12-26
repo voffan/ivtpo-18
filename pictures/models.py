@@ -95,6 +95,7 @@ class Employee(Model):
     department = ForeignKey(Department, verbose_name='Отдел', null=True, on_delete=SET_NULL)
 
 
+
 class Journal(Model):
     picture = ForeignKey('Picture', verbose_name='Картина', db_index=True, on_delete=CASCADE)
     date = DateField(verbose_name='Дата', max_length=100, blank=False, null=False, db_index=True)
@@ -105,10 +106,9 @@ class Journal(Model):
 
 class Picture(Model):
     name = CharField(verbose_name='Название', max_length=250, db_index=True)
-    author =  ForeignKey(Artist, verbose_name='Автор', null=True, on_delete=SET_NULL)
+    author = ForeignKey(Artist, verbose_name='Автор', null=True, on_delete=SET_NULL)
     cost = FloatField('Цена')
     placement = ForeignKey(Placement, verbose_name='Место', null=True, on_delete=SET_NULL)
     year = IntegerField('год', default=1)
     status = IntegerField('Статус', choices=Status, default=1)
-    gallery = ForeignKey(Gallery, verbose_name='Галерея',db_index=True, on_delete=CASCADE)
-    genre = ForeignKey(Genre, verbose_name='Жанр', db_index=True, null=True, blank=True, on_delete=SET_NULL)
+    gallery = ForeignKey(Gallery, verbose_name='Галерея', db_index=True, on_delete=CASCADE)
