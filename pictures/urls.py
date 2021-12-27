@@ -5,6 +5,8 @@ from pictures.views import *
 urlpatterns = [
     path('', index),
 
+    path('picture', piclist, name="addpicture"),
+
     path('authorization', authorization),
 
     path('employee', employee_list),

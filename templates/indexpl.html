@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Галерея</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+		<label>Название картины</label><br>
+        {{ form.name }}<br>
+		<label>Автор картины</label><br>
+		{{ form.author }}<br>
+		<label>Год</label><br>
+		{{ form.year }}<br>
+		<label>Цена</label><br>
+		{{ form.cost }}<br>
+		<label>Местонахождение</label><br>
+		{{ form.placement }}<br>
+		<label>Статус картины</label><br>
+		{{ form.status }}<br>
+		<label>Галерея</label><br>
+		{{ form.gallery }}<br><br>
+        <input type="submit" value="Добавить картину"/>
+        <span>{{ error }}</span>
+    </form>
+</body>
+</html>

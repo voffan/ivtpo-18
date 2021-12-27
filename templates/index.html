@@ -5,6 +5,7 @@
     <title>Галерея</title>
 </head>
 <body>
+	<a href="{% url 'pictures:addpicture' %}">Добавить картину</a>
     <table>
         <tr>
             <input type="search" placeholder="Поиск по жанру" name="genre_search">
@@ -16,10 +17,6 @@
         <th>Наименование</th>
         <th>Автор</th>
         <th>Год</th>
-        <!--<th>Год</th>
-        <th>Год</th>
-        <th>Год</th>
-        <th>Год</th>-->
         </thead>
         <tbody>
         {% for picture in pictures %}
