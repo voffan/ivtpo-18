@@ -7,6 +7,11 @@
 <body>
 	<a href="{% url 'pictures:addpicture' %}">Добавить картину</a>
     <table>
+        <tr>
+            <input type="search" placeholder="Поиск по жанру" name="genre_search">
+            <button type="submit" class="btn" onclick="window.location.href = 'http://localhost:8000/genre_search';">Список жанров</button>
+            <button type="submit" class="btn" onclick="window.location.href = 'http://localhost:8000/country_list';">Список стран</button>
+        </tr>
         <thead>
         <th>Номер</th>
         <th>Наименование</th>
@@ -20,13 +25,16 @@
             <td>{{ picture.name }}</td>
             <td>{{ picture.author.first_name }} {{ picture.author.last_name }}</td>
             <td>{{ picture.year }}</td>
-            <td>{{ placement.name }}</td>
+            <!--<td>{{ placement.name }}</td>
             <td>{{ placement.address }}</td>
             <td>{{ expo.opening_time }}</td>
-            <td>{{ expo.closing_time }}</td>
+            <td>{{ expo.closing_time }}</td>-->
         </tr>
         {% endfor %}
         </tbody>
     </table>
+    <form action="http://localhost:8000/authorization" target="_blank">
+        <button>Авторизация</button>
+    </form>
 </body>
 </html>

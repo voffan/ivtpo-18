@@ -32,7 +32,11 @@ class PictureForm(forms.ModelForm):
     class Meta:
         model = Picture
         fields = ['name', 'author', 'year', 'cost', 'placement', 'status', 'gallery']
-        widget = {'author': AuthorSelect, 'gallery': GallerySelect, 'placement': PlacementSelect}
+        widget = {
+		'author': AuthorSelect,
+		'gallery': GallerySelect,
+		'placement': PlacementSelect
+		}
 
 
 

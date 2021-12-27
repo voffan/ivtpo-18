@@ -105,6 +105,7 @@ class Employee(Model):
     department = ForeignKey(Department, verbose_name='Отдел', null=True, on_delete=SET_NULL)
 
 
+
 class Journal(Model):
     picture = ForeignKey('Picture', verbose_name='Картина', db_index=True, on_delete=CASCADE)
     date = DateField(verbose_name='Дата', max_length=100, blank=False, null=False, db_index=True)
