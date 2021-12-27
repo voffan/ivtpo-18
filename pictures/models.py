@@ -32,7 +32,7 @@ class C(Model):
 
 
 class F(Model):
-    pass,
+    pass
 
 class G(F):
     pass
@@ -58,14 +58,18 @@ class Artist(Model):
     date_of_birth = DateField('Дата рождения', null=True, blank=True)
     date_of_death = DateField('Дата смерти', null=True, blank=True)
 
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
 
 class Gallery(Model):
-    name = CharField(max_length=100)
-    pictures = CharField(max_length=1000)
-    phone = CharField(max_length=12)
-    address = CharField(max_length=100)
-
-
+	name = CharField(max_length=100)
+	pictures = CharField(max_length=1000)
+	phone = CharField(max_length=12)
+	address = CharField(max_length=100)
+	
+	def __str__(self):
+		return self.name
+		
 class Genre(Model):
     name = CharField(max_length=100)
 
@@ -74,10 +78,16 @@ class Placement(Model):
     name = CharField(verbose_name='Название', max_length=250)
     address = CharField(verbose_name='Адрес', max_length=250, db_index=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Department(Placement):
     phone = CharField(max_length=12)
     gallery = ForeignKey(Gallery, verbose_name='Галерея', db_index=True, on_delete=CASCADE)
+
+    def __str__(self):
+        return self.gallery
 
 
 class Country(Model):
@@ -113,3 +123,4 @@ class Picture(Model):
     year = IntegerField('год', default=1)
     status = IntegerField('Статус', choices=Status, default=1)
     gallery = ForeignKey(Gallery, verbose_name='Галерея', db_index=True, on_delete=CASCADE)
+

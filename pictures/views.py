@@ -1,21 +1,40 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+
 from django.contrib.auth import authenticate, login
 from pictures.models import Picture, Expo
 from pictures.models import Picture, Employee, Artist
+from .form import PictureForm
+
+from pictures.models import Expo, Genre
+
+
 from pictures.models import Picture, Employee, Artist, Country
 from django.views.decorators.csrf import csrf_exempt
 from pictures.authForm import AuthForm
 
-
-
 # Create your views here.
 
 
-def index(request):
-    return render(request, "index.html", {'pictures': Picture.objects.all()})
+def piclist(request):
+    error = ''
+    if request.method == 'POST':
+        form = PictureForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('http://127.0.0.1:8000/')
+        else:
+            error = 'Форма была неверной'
+    form = PictureForm()
 
-@csrf_exempt
+
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, "indexpl.html", data)
+
+
 def authorization(request):
     if request.method == "POST":
         #add authorization code
@@ -38,11 +57,22 @@ def artist_list(request):
 def employee_list(request):
     return render(request, "employee.html", {'employees': Employee.objects.all()})
 
+def index(request):
+    return render(request, "index.html", {'pictures': Picture.objects.all()})
+
 
 def listexpo(request):
     return render(request, "ListExpo.html", {'expo': Expo.objects.all()})
 
-def countrySearch(request):
-    return render(request, "country.html", {'countries': Country.objects.all()})
+
+def country_list(request):
+    return render(request, "country_list.html", {'countries': Country.objects.all()})
+
+def genre_search(request):
+    return render(request, "genre_list.html", {'genres': Genre.objects.all()})
+
+def picture_detail(request, picture_id):
+
+    return render(request, "picture_details.html", {'picture': Picture.objects.all().get(id = picture_id)})
 
 

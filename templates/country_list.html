@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Country List</title>
+</head>
+<body>
+<table>
+    <form>
+        <p><input type="search" name="q" placeholder="Поиск по странам">
+        <input type="submit" value="Найти"></p>
+    </form>
+
+        <thead>
+        <th>Наименование</th>
+        </thead>
+        <tbody>
+            {% for countries in countries %}
+        <tr>
+            <td>{{ countries.name }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+</table>
+
+</body>
+</html>

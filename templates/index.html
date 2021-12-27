@@ -5,22 +5,24 @@
     <title>Галерея</title>
 </head>
 <body>
+	<a href="{% url 'pictures:addpicture' %}">Добавить картину</a>
     <table>
+        <tr>
+            <input type="search" placeholder="Поиск по жанру" name="genre_search">
+            <button type="submit" class="btn" onclick="window.location.href = 'http://localhost:8000/genre_search';">Список жанров</button>
+            <button type="submit" class="btn" onclick="window.location.href = 'http://localhost:8000/country_list';">Список стран</button>
+        </tr>
         <thead>
         <th>Номер</th>
         <th>Наименование</th>
         <th>Автор</th>
         <th>Год</th>
-        <!--<th>Год</th>
-        <th>Год</th>
-        <th>Год</th>
-        <th>Год</th>-->
         </thead>
         <tbody>
         {% for picture in pictures %}
         <tr>
-            <td>{{ picture.id }}</td>
-            <td>{{ picture.name }}</td>
+            <td>{{ picture.id }} </td>
+            <td><a href="{% url 'pictures:picture_detail' picture.id %}">{{picture.name }}</a></td>
             <td>{{ picture.author.first_name }} {{ picture.author.last_name }}</td>
             <td>{{ picture.year }}</td>
             <!--<td>{{ placement.name }}</td>
