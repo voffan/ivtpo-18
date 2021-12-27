@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from pictures.models import Picture, Expo
 from pictures.models import Picture, Employee, Artist
 from pictures.models import Picture, Employee, Artist, Country
 from django.views.decorators.csrf import csrf_exempt
+from pictures.authForm import AuthForm
 
 
 
@@ -18,24 +19,17 @@ def index(request):
 def authorization(request):
     if request.method == "POST":
         #add authorization code
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                # Redirect to a success page.
-                print("User is valid, active and authenticated")
-            else:
-                print("The password is valid, but the account has been disabled!")
-                # Return a 'disabled account' error message
-
-        else:
-            print("aboba")
-        # Return an 'invalid login' error message.
-
-        pass
-    return render(request, "authorization.html")
+        form = AuthForm(request.POST)
+        if form.is_valid():
+            user = authenticate(username=form.cleaned_data['login'], password=form.cleaned_data['pwd'])
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    # Redirect to a success page.
+                    return redirect('pictures:index')
+    else:
+        form = AuthForm
+    return render(request, "authorization.html", {'form': form})
 
 
 def artist_list(request):

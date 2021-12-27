@@ -3,7 +3,7 @@ from django.urls import path
 from pictures.views import *
 
 urlpatterns = [
-    path('', index),
+    path('', index, name='index'),
 
     path('authorization', authorization),
 
