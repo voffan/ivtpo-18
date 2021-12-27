@@ -37,6 +37,6 @@ def genre_search(request):
 
 def picture_detail(request, picture_id):
 
-    return render(request, "picture_details.html", {'pictures': Picture.objects.all().filter(id = picture_id)})
+    return render(request, "picture_details.html", {'picture': Picture.objects.all().get(id = picture_id)})
 
 

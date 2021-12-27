@@ -5,30 +5,14 @@
     <title>Детали картины</title>
 </head>
 <body>
-<table>
-        <thead>
-        <th>Наименование</th>
-        <th>Автор</th>
-        <th>Цена</th>
-        <th>Место</th>
-        <th>Год</th>
-        <th>Статус</th>
-        <th>Галерея</th>
-        </thead>
-        <tbody>
-        {% for picture in pictures %}
-        <tr>
-            <td>{{ picture.name }}</td>
-            <td>{{ picture.author.first_name }} {{ picture.author.last_name }}</td>
-            <td>{{ picture.cost }}</td>
-            <td>{{ picture.placement.address }}</td>
-            <td>{{ picture.year }}</td>
-            <td>{{ picture.status }}</td>
-            <td>{{ picture.gallery.name }}</td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <p>Наименование: {{ picture.name }}</p>
+        <p>Автор: {{ picture.author.first_name }} {{ picture.author.last_name }}</p>
+        <p>Цена: {{ picture.cost }}</p>
+        <p>Место: {{ picture.placement.address }}</p>
+        <p>Год: {{ picture.year }}</p>
+        <p>Статус: {{ picture.status }}</p>
+        <p>Галерея: {{ picture.gallery.name }}</p>
+
 
 </body>
 </html>
