@@ -6,6 +6,7 @@ from pictures.models import Expo, Genre
 from pictures.models import Picture, Employee, Artist, Country
 
 
+
 # Create your views here.
 
 
@@ -27,15 +28,15 @@ def employee_list(request):
 def listexpo(request):
     return render(request, "ListExpo.html", {'expo': Expo.objects.all()})
 
-def countrySearch(request):
-    return render(request, "country.html", {'countries': Country.objects.all()})
-
 
 def country_list(request):
     return render(request, "country_list.html", {'countries': Country.objects.all()})
 
-
 def genre_search(request):
     return render(request, "genre_list.html", {'genres': Genre.objects.all()})
+
+def picture_detail(request, picture_id):
+
+    return render(request, "picture_details.html", {'pictures': Picture.objects.all().filter(id = picture_id)})
 
 

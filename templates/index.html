@@ -24,8 +24,8 @@
         <tbody>
         {% for picture in pictures %}
         <tr>
-            <td>{{ picture.id }}</td>
-            <td>{{ picture.name }}</td>
+            <td>{{ picture.id }} </td>
+            <td><a href="{% url 'pictures:picture_detail' picture.id %}">{{picture.name }}</a></td>
             <td>{{ picture.author.first_name }} {{ picture.author.last_name }}</td>
             <td>{{ picture.year }}</td>
             <!--<td>{{ placement.name }}</td>

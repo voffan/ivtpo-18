@@ -11,12 +11,12 @@ urlpatterns = [
 
     path('listexpo', listexpo),
 
-    path('country', countrySearch),
-
     path('listofartists', artist_list),
 
     path('genre_search', genre_search),
 
-    path('country_list', country_list)
+    path('country_list', country_list),
+
+    path('picture_detail/<int:picture_id>', picture_detail, name='picture_detail')
 ]
 

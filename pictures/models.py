@@ -112,3 +112,4 @@ class Picture(Model):
     year = IntegerField('год', default=1)
     status = IntegerField('Статус', choices=Status, default=1)
     gallery = ForeignKey(Gallery, verbose_name='Галерея', db_index=True, on_delete=CASCADE)
+

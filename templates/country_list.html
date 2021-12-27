@@ -2,21 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Список стран</title>
+    <title>Country List</title>
 </head>
 <body>
 <table>
+    <form>
+        <p><input type="search" name="q" placeholder="Поиск по странам">
+        <input type="submit" value="Найти"></p>
+    </form>
+
         <thead>
         <th>Наименование</th>
         </thead>
         <tbody>
-        {% for country in countries %}
+            {% for countries in countries %}
         <tr>
-            <td>{{ country.name }}</td>
+            <td>{{ countries.name }}</td>
         </tr>
         {% endfor %}
         </tbody>
-    </table>
+</table>
 
 </body>
 </html>
