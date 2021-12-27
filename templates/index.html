@@ -11,6 +11,10 @@
         <th>Наименование</th>
         <th>Автор</th>
         <th>Год</th>
+        <!--<th>Год</th>
+        <th>Год</th>
+        <th>Год</th>
+        <th>Год</th>-->
         </thead>
         <tbody>
         {% for picture in pictures %}
@@ -19,10 +23,10 @@
             <td>{{ picture.name }}</td>
             <td>{{ picture.author.first_name }} {{ picture.author.last_name }}</td>
             <td>{{ picture.year }}</td>
-            <td>{{ placement.name }}</td>
+            <!--<td>{{ placement.name }}</td>
             <td>{{ placement.address }}</td>
             <td>{{ expo.opening_time }}</td>
-            <td>{{ expo.closing_time }}</td>
+            <td>{{ expo.closing_time }}</td>-->
         </tr>
         {% endfor %}
         </tbody>

@@ -26,6 +26,8 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(db_index=True, max_length=100, verbose_name='ФИО сотрудника')),
                 ('telephone', models.CharField(db_index=True, max_length=15, verbose_name='Телефон')),
                 ('position', models.CharField(db_index=True, max_length=100, verbose_name='Позиция')),
+                ('username', models.CharField(db_index=True, max_length=100, verbose_name='username')),
+                ('password', models.CharField(db_index=True, max_length=100, verbose_name='password')),
             ],
         ),
         migrations.CreateModel(

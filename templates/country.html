@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список стран</title>
+</head>
+<body>
+    <table>
+        <thead>
+        <th>Название страны</th>
+
+        </thead>
+        <tbody>
+        <form action="" method="get">
+            <input name="s" placeholder="Поиск по странам" type="search">
+             <button type="submit">Поиск</button>
+        </form>
+        {% for country in countries %}
+        <tr>
+            <td>{{ country.name }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
